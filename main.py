@@ -3,7 +3,11 @@ from flask_cors import CORS
 from pytube import YouTube
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={
+    r"/download_audio": {"origins": ["https://mp3downlaoder.vercel.app", "chrome-extension://aemegkonfbajfofocedalcoicnfkgcjk"]},
+    r"/download_video": {"origins": ["https://mp3downlaoder.vercel.app", "chrome-extension://aemegkonfbajfofocedalcoicnfkgcjk"]}
+})
+
 
 @app.route('/download_audio', methods=['POST'])
 def download_audio():
