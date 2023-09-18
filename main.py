@@ -8,6 +8,13 @@ CORS(app, resources={
     r"/download_video": {"origins": ["https://mp3downlaoder.vercel.app", "chrome-extension://aemegkonfbajfofocedalcoicnfkgcjk"]}
 })
 
+
+
+@app.route('/')
+def hello_world():
+    return '<html><body><h1>Hello, World!</h1></body></html>'
+
+
 @app.route('/download_audio', methods=['POST'])
 def download_audio():
     try:
